@@ -32,9 +32,11 @@ describe('TODO site', function () {
     it('should delete all notes', function(){
         browser.get(URL)
     let list = $$("input[type='checkbox']")
-//      list.each(function () { done.click() })
-        list.then(function (del){
-        for (let i = 0; i < del.length; i++) {del[i].click()}})
+//   maybe method   list.each(function () { done.click() })
+//   work method   list.then(function (del){ for (let i = 0; i < del.length; i++) {del[i].click()} })
+//   below the simpliest method
+        list.click()
+        browser.sleep(2000)
         expect(list.count()).toBe(0)
     })
 
