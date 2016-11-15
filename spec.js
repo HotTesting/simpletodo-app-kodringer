@@ -14,19 +14,19 @@ describe('TODO site', function () {
 
     it('should create new note', function () {
         browser.get(URL)
-    let webelement = $('input.enter-todo')
-        webelement.sendKeys('R')
-        webelement.submit()
+    let input = $('input.enter-todo')
+        input.sendKeys('R')
+        input.submit()
     let notes = $$('todo-list .small-12')
         expect(notes.getText()).toContain('R')
     })
 
     it('should delete note', function (){
         browser.get(URL)
-    let list = $$("input[type='checkbox']").count()
+    let count = $$("input[type='checkbox']").count()
         done.click()
-    let newlist = $$("input[type='checkbox']").count()
-        expect(list).toBeGreaterThan(newlist)
+    let newcount = $$("input[type='checkbox']").count()
+        expect(count).toBeGreaterThan(newcount)
     })
 
     it('should delete all notes', function(){
