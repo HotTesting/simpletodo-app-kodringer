@@ -36,7 +36,6 @@ describe('TODO site', function () {
 //   work method   list.then(function (del){ for (let i = 0; i < del.length; i++) {del[i].click()} })
 //   below the simpliest method
         list.click()
-        browser.sleep(2000)
         expect(list.count()).toBe(0)
     })
 
