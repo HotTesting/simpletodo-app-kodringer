@@ -2,7 +2,6 @@
 
 let URL = 'http://maxcabrera.com/code/todo-list/'
 let done = $("input[type='checkbox']")
-let list = element.all(by.css("input[type='checkbox']"))
 
 describe('TODO site', function () {
 
@@ -24,13 +23,16 @@ describe('TODO site', function () {
 
     it('should delete note', function (){
         browser.get(URL)
-        element((done).click())
-    let newlist = element.all(by.css("input[type='checkbox']"))
-        expect(list.count() != newlist.count()).toBe(true)
+    let list = $$("input[type='checkbox']").count()
+        done.click()
+    let newlist = $$("input[type='checkbox']").count()
+        expect(list).toBeGreaterThan(newlist)
     })
+
     it('should delete all notes', function(){
         browser.get(URL)
-//      list.each(function () { element(done).click() })
+    let list = $$("input[type='checkbox']")
+//      list.each(function () { done.click() })
         list.then(function (del){
         for (let i = 0; i < del.length; i++) {del[i].click()}})
         expect(list.count()).toBe(0)
